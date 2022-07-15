@@ -1,27 +1,16 @@
-import { useState } from 'react'
-import { useGetAllUsersQuery } from './Redux/User.api';
-import { User } from './Types/Posts'
-
+import { Routes, Route } from "react-router-dom";
+import MainLayout from "./Layout/MainL";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
 function App() {
-  const { data, isLoading, error } = useGetAllUsersQuery('posts',{pollingInterval:3000})
 
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline text-red-600">
-        Hello world!
-      </h1>
-      {isLoading ? (
-        "Loading...."
-      ) : error ? (
-        "Error"
-      ) : data ? (
-        <ul>
-          {data?.map((item: User) => {
-            return <li key={item.id}>{item.title}</li>;
-          })}
-        </ul>
-      ) : null}
-    </div>
+    <MainLayout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </MainLayout>
   )
 }
 
