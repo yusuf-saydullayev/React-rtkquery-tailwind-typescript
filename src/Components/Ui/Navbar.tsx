@@ -1,11 +1,12 @@
 import { FC } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
 ]
 const Navbar: FC = () => {
+
   return (
     <nav className="bg-indigo-500 border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
@@ -22,11 +23,10 @@ const Navbar: FC = () => {
             {navigation.map((item) => {
               return (
                 <li key={item.name}>
-                  <Link to={item.href} className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-white md:p-0 dark:text-white" aria-current="page">{item.name}</Link>
+                  <NavLink to={item.href} className="hover:bg-sky-500 block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-white md:p-0 dark:text-white">{item.name}</NavLink>
                 </li>
               )
             })}
-
           </ul>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { useGetAllUsersQuery } from '../Redux/User.api';
 import { User } from '../Types/Posts'
 
 const Home: FC = () => {
-  const { data, isLoading, error } = useGetAllUsersQuery('posts', { pollingInterval: 3000 })
+  const { data, isLoading, error } = useGetAllUsersQuery('posts')
 
   return (
     <div className='flex justify-center py-6'>
@@ -13,7 +13,7 @@ const Home: FC = () => {
         "Error"
       ) : data ? (
         <ul>
-          {data?.map((item: User) => {
+          {data.map((item: User) => {
             return <li key={item.id} className="list-disc">{item.title}</li>;
           })}
         </ul>
