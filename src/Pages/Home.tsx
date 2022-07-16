@@ -6,7 +6,7 @@ const Home: FC = () => {
   const { data, isLoading, error } = useGetAllUsersQuery('posts', { pollingInterval: 3000 })
 
   return (
-    <div>
+    <div className='flex justify-center py-6'>
       {isLoading ? (
         "Loading...."
       ) : error ? (
@@ -14,7 +14,7 @@ const Home: FC = () => {
       ) : data ? (
         <ul>
           {data?.map((item: User) => {
-            return <li key={item.id}>{item.title}</li>;
+            return <li key={item.id} className="list-disc">{item.title}</li>;
           })}
         </ul>
       ) : null}
