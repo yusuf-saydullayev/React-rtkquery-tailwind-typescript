@@ -1,8 +1,8 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import Navbar from '../Components/Ui/Navbar'
 import Footer from '../Components/Ui/Footer'
 interface AuxProps {
-  children: JSX.Element
+  children: ReactNode
 }
 const MainLayout: FC<AuxProps> = ({ children }) => {
   return (

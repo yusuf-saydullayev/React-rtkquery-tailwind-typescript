@@ -14,7 +14,7 @@ const Home: FC = () => {
       ) : data ? (
         <ul>
           {data.map((item: User) => {
-            return <li key={item.id} className="list-disc">{item.title}</li>;
+            return <li key={item.id} className="text-center text-white font-mono bg-lime-500 rounded-md my-2 hover:bg-cyan-600 transition delay-50 hover:scale-105 py-1">{item.title}</li>;
           })}
         </ul>
       ) : null}
