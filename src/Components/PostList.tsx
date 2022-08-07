@@ -1,6 +1,6 @@
-import { useGetAllUsersQuery } from '../Redux/Post.api';
-import { Post } from '../Types/Posts'
 import { FC } from 'react'
+import { useGetAllUsersQuery } from '../Redux/Post.api';
+import Post from './Post';
 
 const PostList: FC = () => {
   const { data, isLoading, error } = useGetAllUsersQuery('posts')
@@ -11,8 +11,8 @@ const PostList: FC = () => {
       {isLoading && "Loading...."}
       {data && (
         <ul>
-          {data.map((item: Post) => {
-            return <li key={item.id} className="text-center text-white font-mono bg-lime-500 rounded-md my-2 hover:bg-cyan-600 transition delay-50 hover:scale-105 py-1">{item.title}</li>;
+          {data.map((item) => {
+            return <Post id={item.id} title={item.title} />
           })}
         </ul>
       )}
